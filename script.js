@@ -1,57 +1,57 @@
 
+let humanScore = 0;
+let computerScore = 0;
+
+const hScore = document.querySelector("#user") 
+const cScore = document.querySelector("#system") 
+const result = document.querySelector("#result")
+
+function playGround(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        result.textContent = "Its a Draw"
+    } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "rock")) {
+        result.textContent = "You Win!!"
+        humanScore++;
+    } else {
+        computerScore++;
+        result.textContent = "You loss!!"
+    }
+
+    hScore.textContent = `User Score ${humanScore}`
+    cScore.textContent = `Computer Score ${computerScore}`
+}
+
+
+const buttons = document.querySelectorAll("button")
+let clickCount = 0;
+const maxCount = 5;
+
 function getComputerChoice() {
     const choices = ["rock", "scissors", "paper"]
     const computerChoice = choices[Math.floor(Math.random() * choices.length)];
     return computerChoice;
 }
 
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
 
-// function getHumanChoice() {
-//     const humanChoice = prompt("Enter your choice (rock, paper, scissors):")
-//     return humanChoice
-// }
+        if(clickCount >= maxCount){
+            return
+        }
 
-// let humanScore = 0;
-// let computerScore = 0;
+        clickCount++;
 
-// function playGround(humanChoice, computerChoice) {
-//     if (humanChoice === "rock") {
-//         if (humanChoice === "rock" && computerChoice === "scissors") {
-//             console.log("You win!, System loss")
-//             humanScore = humanScore + 1;
-//         } else if ( humanChoice === "rock" && computerChoice === "paper") {
-//             console.log("You loss!, System Win")
-//             computerScore =  computerScore + 1;
-//         } else 
-//             console.log("Draw")
-//     } else if (humanChoice === "scissors") {
-//         if (humanChoice === "scissors" && computerChoice === "paper") {
-//             console.log("You win!, System loss")
-//             humanScore = humanScore + 1;
-//         } else if (humanChoice === "scissors" && computerChoice === "rock") {
-//             console.log("You loss!, System Win")
-//             computerScore =  computerScore + 1;
-//         } else 
-//             console.log("Draw")
-//     } else if (humanChoice === "paper") {
-//         if ( humanChoice === "paper" && computerChoice === "rock") {
-//             console.log("You win!, System loss")
-//             humanScore = humanScore + 1;
-//         } else if (humanChoice === "paper" && computerChoice === "scissors") {
-//             console.log("You loss!, System Win")
-//             computerScore =  computerScore + 1;
-//         } else {
-//             console.log("Draw")
-//         }
-//     }
+        const hChoice = e.target.name;
+        let cChoice = getComputerChoice()
 
-//     return console.log(`Human Scored : ${humanScore} && Computer Scored : ${computerScore}`)
-// }
+        playGround(hChoice, cChoice)
 
-// for (let i = 1; i <= 5; i++) {
-//     let cChoice = (getComputerChoice());
-//     let hChoice = (getHumanChoice())
+        if (clickCount === maxCount) {
+            buttons.forEach((btn) => {
+                btn.disabled = true;
+            })
 
-//     playGround(hChoice, cChoice)
-// }
-
+            result.textContent = "game over! refresh the page";
+        }
+    })
+});
