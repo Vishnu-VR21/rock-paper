@@ -1,14 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Rock Paper Scissors</title>
-</head>
-<body>
-    <h1 style="text-align:center; color: rebeccapurple">Welcome to Rock Paper Scissors</h1>
+  </head>
+  <body>
+    <h1 class="main-heading">Welcome to Rock Paper Scissors</h1>
 
+    <div class="container">
+      <div class="instructions">
+        <p>five rounds</p>
+        <p>Choices are rock, paper, & scissors</p>
+      </div>
+
+      <form class="user-input">
+        <label for="userinput">Enter Your Choice</label>
+        <input type="text" id="userinput" />
+        <button>Submit</button>
+      </form>
+
+      <div class="score-panel">
+        <div class="score-card">
+          <p class="scroes">user score : </p>
+        </div>
+        <div class="score-card">
+          <p class="scores">comp score : </p>
+        </div>
+      </div>
+    </div>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>

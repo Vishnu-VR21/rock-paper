@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main-heading {
+    text-align: center;
+    color: brown;
+    margin: 40px;
+    font-size: 42px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions {
+    text-align: center;
+    margin: 30px;
+    color: red;
+    font-style: italic;
+    font-size: 24px;
+}
+
+.user-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    font-size: 32px;
+    align-items: center;
+    margin: 30px;
+}
+
+.user-input input {
+    width: 240px;
+    height: 40px;
+    border: 2px solid black;
+    font-size: 24px;
+    text-align: center;
+}
+
+.user-input button {
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.user-input button :hover {
+    background-color: rgb(66, 228, 66);
+    cursor: pointer;
+}
+
+.score-panel {
+    display: flex;
+    gap: 50px;
+    font-size: 32px;
+}
